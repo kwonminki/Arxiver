@@ -2,7 +2,7 @@ var issave = true
 // This background script is for adding the back to abstract button.
 var app = {};
 // All logs should start with this.
-app.name = "[arXiv-utils]";
+app.name = "[arXiver]";
 // These 2 below is for regex matching.
 app.abs_regexp = /arxiv.org\/abs\/([\S]*)$/;
 app.pdf_regexp = /arxiv.org\/[\S]*\/([^\/]*)$/;
@@ -46,12 +46,10 @@ app.openAbstractTab = function (activeTabIdx, url, type) {
   }
   // Create the abstract page in new tab.
   chrome.tabs.create({ "url": newURL }, (tab) => {
-    console.log(app.name, "Opened abstract page in new tab.");
     // Move the target tab next to the active tab.
     chrome.tabs.move(tab.id, {
       index: activeTabIdx + 1
     }, function (tab) {
-      console.log(app.name, "Moved abstract tab.");
     });
   });
 }

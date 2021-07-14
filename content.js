@@ -1,7 +1,7 @@
 // This content_script is for changing the title after page loaded.
 var app = {};
 // All logs should start with this.
-app.name = "[arXiv-utils]";
+app.name = "arXiver";
 // These 4 below are For checking if tab title has been updated.
 app.id = undefined;
 app.type = undefined;
@@ -47,7 +47,6 @@ app.getId = function (url, type) {
 // Get the title asynchronously, call the callbacks with the id, the type, and the queried title as argument when request done (`callback(id, type, title, newTitle)`).
 // Updates `app`'s 4 variables: `title`, `type`, `id`, `newTitle` before callback.
 app.getTitleAsync = function (id, type, callback, callback2) {
-  console.log(app.name, "Retrieving title through ArXiv API request...");
   var request = new XMLHttpRequest();
   request.open("GET", "https://export.arxiv.org/api/query?id_list=" + id);
   request.onload = function () {
@@ -82,13 +81,11 @@ app.insertTitle = function (id, type, title, newTitle) {
     console.log(app.name, "Warning: Title insertion cancelled. Too many title changes");
     return;
   }
-  console.log(app.name, "Trying to change title to: " + newTitle)
   var elTitles = document.getElementsByTagName("title");
   if (elTitles.length !== 0) {
     // Modify directly if <title> exists.
     var elTitle = elTitles[0];
     elTitle.innerText = newTitle;
-    console.log(app.name, "Modify <title> tag directly.");
     return;
   }
   var elHeads = document.getElementsByTagName("head");
@@ -98,7 +95,6 @@ app.insertTitle = function (id, type, title, newTitle) {
     var elTitle = document.createElement("title");
     elTitle.innerText = newTitle;
     elHead.appendChild(elTitle);
-    console.log(app.name, "Modify <head> tag.");
     return;
   }
   var elHtmls = document.getElementsByTagName("html");
@@ -111,10 +107,8 @@ app.insertTitle = function (id, type, title, newTitle) {
     elHead.appendChild(elTitle);
     if (elHtml.firstChild !== null) {
       elHtml.insertBefore(elHead, elHtml.firstChild);
-      console.log(app.name, "Modify <html> tag by inserting before first child.");
     } else {
       elHtml.appendChild(elHead);
-      console.log(app.name, "Modify <html> tag by appending.");
     }
     return;
   }
@@ -124,9 +118,6 @@ app.insertTitle = function (id, type, title, newTitle) {
 function fn_download(){
   var title = document.getElementById("directdownloadid")
   var url = document.getElementById("directdownloadidforurl")
-  console.log("clicked")
-  console.log(title.name)
-  console.log(url.name)
   var param = {"filename" : title.name.toString(), "url" : url.name.toString()};
   chrome.runtime.sendMessage(param);
 }
@@ -157,12 +148,10 @@ app.addDownloadLink = function (id, type, title, newTitle) {
   elLI.appendChild(elA);
   elLI.appendChild(elA2);
   elUL.appendChild(elLI)
-  console.log(app.name, "Added direct download link.")
   document.getElementById('directdownloadid').addEventListener('click', fn_download);
 }
 // Run this after the page has finish loading.
 app.run = function () {
-  console.log(app.name, "Extension initialized.");
   var url = location.href;
   var type = app.getType(url);
   var id = app.getId(url, type);
