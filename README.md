@@ -11,6 +11,8 @@ chrome extension file.
 
 단점 : 다운을 안받는 기능은 없다. toggle을 on으로 두고 취소를 눌러 다운을 안받는 방법정도? 추후 업데이트 해볼 생각이다.
 
+버그, 오류, 건의 등등 이슈에 남겨주면 고칠 예정.
+
 # English
 Feature: When downloading a pdf file from arxiv.org/abs/*, it is renamed to the title of the paper.
 
