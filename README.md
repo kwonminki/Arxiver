@@ -1,6 +1,19 @@
 # Arxiver
-2021.07.14 version 1.0
+2021.07.14 version ~1.0~ 2.0
 chrome extension file.
+
+# Version 2.0
+Get some codes from https://github.com/j3soon/arxiv-utils (Thank you)
+
+Direct Download 버튼을 페이지에 생성, 누르면 다운받게 만듬.
+
+이전과 똑같이 toggle 존재, 다른이름으로 저장할지 바로 저장할지 정함.
+
+페이지 이름 논문 제목으로 변경.
+
+pdf 이름도 논문 제목으로 변경.
+
+파일명 "논문제목 + 저자 + 날짜" 로 변경
 
 # Korean
 기능 : arxiv.org/abs/* 에서 pdf파일을 눌러 다운 받을 시 해당 파일의 이름을 논문 제목으로 바꿔준다.
