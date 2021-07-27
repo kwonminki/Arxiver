@@ -1,6 +1,16 @@
 # Arxiver
-2021.07.14 version ~1.0~ 2.0
+~2021.07.14 version ~1.0~ 2.0~
+2021.07.24 version 2.1
 chrome extension file.
+
+# Version 2.1
+저자, 연도를 선택적으로 추가할 수 있도록 수정.
+(팝업창은 arixiv.org 안에서만 열리는 것을 확인.. 아무래도 권한 설정 때문인듯 함.)
+기타 자잘한 버그 수정.
+
+https://chrome.google.com/webstore/detail/arxive/hkoblclipggkhhbllgefhnbjdcajmelh?hl=en-US&authuser=0
+크롬 웹스토어에 런칭.
+
 
 # Version 2.0
 Get some codes from https://github.com/j3soon/arxiv-utils (Thank you)
