@@ -1,6 +1,6 @@
-# Arxiver
-~2021.07.14 version ~1.0~ 2.0~
+# Arxive
 2021.07.24 version 2.1
+
 chrome extension file.
 
 # Version 2.1
@@ -11,6 +11,7 @@ chrome extension file.
 https://chrome.google.com/webstore/detail/arxive/hkoblclipggkhhbllgefhnbjdcajmelh?hl=en-US&authuser=0
 크롬 웹스토어에 런칭.
 
+그냥 pdf 버튼 눌러서 다운되는 기능을 가진 Arxiver는 일단 그대로 냅둠.
 
 # Version 2.0
 Get some codes from https://github.com/j3soon/arxiv-utils (Thank you)
